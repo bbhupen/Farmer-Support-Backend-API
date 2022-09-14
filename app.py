@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, Markup
-import pickle
+from pickle import load
 import numpy as np
 import pandas as pd
 from flask_cors import CORS, cross_origin
@@ -15,7 +15,7 @@ cors = CORS(app, resources={
 
 crop_recommendation_model_path = 'models/recommendationModel.pkl'
 
-crop_recommendation_model = pickle.load(
+crop_recommendation_model = load(
     open(crop_recommendation_model_path, 'rb'))
 
 
