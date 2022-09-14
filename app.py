@@ -1,5 +1,3 @@
-from crypt import methods
-from urllib import response
 from flask import Flask, jsonify, request, Markup
 import pickle
 import numpy as np
