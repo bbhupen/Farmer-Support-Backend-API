@@ -1,3 +1,4 @@
+from crypt import methods
 from urllib import response
 from flask import Flask, jsonify, request, Markup
 import pickle
@@ -19,6 +20,10 @@ crop_recommendation_model_path = 'models/recommendationModel.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
 
+
+@ app.route('/', methods=['GET'])
+def hello_world():
+   return "Access /crop-predict and /fertilizer-predict endpoint to use the API."
 
 @ app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
