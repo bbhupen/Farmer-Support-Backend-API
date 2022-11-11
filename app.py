@@ -1,15 +1,19 @@
-from flask import Flask, jsonify, request, Markup
+import json
+from flask import Flask, jsonify, request
 from pickle import load
 import numpy as np
 import pandas as pd
-from flask_cors import CORS, cross_origin
+import flask_cors
+from cropData import crops_dic
 
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={
+cors = flask_cors.CORS(app, resources={
             r"/crop-predict": {"origins": "*"},
-            r"/fertilizer-predict" : {"origins": "*"}})
+            r"/fertilizer-predict" : {"origins": "*"},
+            r"/crop-search" : {"origin": "*"}
+            })
 
 # Importing the machine learning model
 
@@ -22,6 +26,31 @@ crop_recommendation_model = load(
 @ app.route('/', methods=['GET'])
 def hello_world():
    return "Access /crop-predict and /fertilizer-predict endpoint to use the API."
+
+
+
+@ app.route('/crop-search', methods=['POST'])
+def crop_search():
+    if request.method == 'POST':
+        key = str(request.json['cropname']).lower()
+        
+
+        response = {
+            'message': "Succesfully parsed",
+            'status_code': 200
+        }
+
+        response['title'] = key
+        response['sc-name'] = str(crops_dic[key+'-sc-name'])
+        response['desc'] = str(crops_dic[key+'-desc'])
+        response['cult'] = str(crops_dic[key+'-cult'])
+        response['climate'] = str(crops_dic[key+'-climate'])
+
+        response = jsonify(response)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+
+        return response
+
 
 @ app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
@@ -56,7 +85,6 @@ def crop_prediction():
         return response
 
         
-
 
 @ app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
@@ -106,6 +134,7 @@ def fert_recommend():
         response.headers.add('Access-Control-Allow-Origin', '*')
 
         return response
+
 
 
 if __name__ == '__main__':
