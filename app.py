@@ -32,7 +32,9 @@ def hello_world():
 @ app.route('/crop-search', methods=['POST'])
 def crop_search():
     if request.method == 'POST':
-        key = str(request.json['cropname']).lower()
+        req = json.loads(request.json)
+        print(type(req)) 
+        key = (req['cropname'])
         
 
         response = {
