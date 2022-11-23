@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import flask_cors
 from cropData import crops_dic
-
+from fertilizerData import fertilizer_dic
 
 app = Flask(__name__)
 
@@ -131,12 +131,30 @@ def fert_recommend():
             else:
                 key = "Klow"
 
-        response['result'] = key
+        response['key'] = key
         response = jsonify(response)
         response.headers.add('Access-Control-Allow-Origin', '*')
 
         return response
 
+@ app.route('/fertilizer-key', methods=['POST'])
+def fert_key():
+    req = json.loads(request.json)
+    print("This is the request ", req['key'])
+
+    if request.method == 'POST':
+        key = req["key"]
+
+    response = {
+            'status_code': 200,
+            'result': fertilizer_dic[key]
+        }
+    response = jsonify(response)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    return response
+
+    
 
 
 if __name__ == '__main__':
