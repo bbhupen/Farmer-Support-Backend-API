@@ -128,14 +128,6 @@ crops_dic = {
 	'watermelon-sc-name' : """Citrullus lanatus""",
         'watermelon-desc' : """The watermelon is a crawling and climbing plant with lengthy stems and leaves divided in lobes. Its fruit is a berry that may weigh up to 15kg, with a hard green rind and a sweet pulp of more or less reddish colour. The watermelon is an annual plant that belongs to the family of Cucurbitaceous. Its scientific name is Citrullus vulgaris. It has some herbaceous stems that may reach 5m of length. They are cylindrical, with longitudinal and hairy furrows. The upper side of the leaves is very smooth, whereas the reverse is very rough, with strongly marked nerves. The leaves are divided in rounded segments, each one with 3 to 5 lobes. The flowers are born in the axils of the leaves. They are yellow and solitary, masculine and feminine.""",
 	'watermelon-cult' : """Watermelons need soil that is well-drained and sandy. They also need a pH level between 6.0 and 6.5, a very narrow range. Test your soil before adding any compost or fertilizer to know if you need to add any nutrients and in what amounts, and water your watermelon plants regularly when they're young. Typically, watermelon plants need 1-2 inches of water per week so that the soil stays moist but not wet. If you're not getting enough rain each week, make sure you give your plants an extra drink.To suppress weeds and keep soil moist, apply a 1- to 2-inch layer of organic mulch around watermelon vines when they reach 6 to 8 inches long. Frequently hand-pull weeds when they're small; if you wait until weeds are large, the weeds' large root systems could disturb a watermelon's shallow roots.""",
-        'watermelon-climate' : """The best average temperature range for watermelon production during the growing season is between 65°F and 95°F. Temperatures above 95°F or below 50°F will slow the growth and maturation of the crop. Watermelons require a constant supply of moisture during the growing season.""",
-        
-        
-
-        'invalid-sc-name' : """None""",
-        'invalid-desc' : """None""",
-        'invalid-cult' : """None""",
-        'invalid-climate' : """None""",
-
+        'watermelon-climate' : """The best average temperature range for watermelon production during the growing season is between 65°F and 95°F. Temperatures above 95°F or below 50°F will slow the growth and maturation of the crop. Watermelons require a constant supply of moisture during the growing season."""
 
     }

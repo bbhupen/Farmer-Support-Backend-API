@@ -147,14 +147,12 @@ def fert_key():
 
     response = {
             'status_code': 200,
-            'result': fertilizer_dic[key]
+            'result': fertilizer_dic[key],
         }
     response = jsonify(response)
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
-
-    
 
 
 if __name__ == '__main__':

@@ -1,52 +1,52 @@
 fertilizer_dic = {
     'NHigh': {
-        "result": "Your soil has Nitrogen (N) in a large amount. This might give rise to weeds",
+        "result": "Very high levels of Nitrogen (N) are exhibited by the soil.",
         "suggestion": [
-            "Manure – adding manure is one of the simplest ways to amend your soil with nitrogen. Be careful as there are various types of manures with varying degrees of nitrogen.",
+            "While there are many ways to help reduce excess nitrogen symptoms, most will require some patience but will guarantee that nitrogen is removed from your soil. Below are 5 methods to reduce nitrogen in your soil.",
 
-            "Coffee grinds  – use your morning addiction to feed your gardening habit! Coffee grinds are considered a green compost material which is rich in nitrogen. Once the grounds break down, your soil will be fed with delicious, delicious nitrogen. An added benefit to including coffee grounds to your soil is while it will compost, it will also help provide increased drainage to your soil.",
-
-            "Plant nitrogen fixing plants – planting vegetables that are in Fabaceae family like peas, beans and soybeans have the ability to increase nitrogen in your soil",
-
-            "Plant ‘green manure’ crops like cabbage, corn and brocolli",
-
-            "Use mulch (wet grass) while growing crops - Mulch can also include sawdust and scrap soft woods"
-
-        ]
-    },
-    'Nlow': {
-        "result": "Your soil has Nitrogen (N) in a low amount. This might lead to stunted growth of your crops",
-        "suggestion": [
             "Add sawdust or fine woodchips to your soil – the carbon in the sawdust/woodchips love nitrogen and will help absorb and soak up and excess nitrogen.",
 
             "Plant heavy nitrogen feeding plants – tomatoes, corn, broccoli, cabbage and spinach are examples of plants that thrive off nitrogen and will suck the nitrogen dry.",
 
-            "Water – soaking your soil with water will help leach the nitrogen deeper into your soil, effectively leaving less for your plants to use.",
+            "Soaking your soil with water will help leach the nitrogen deeper into your soil, effectively leaving less for your plants to use.",
 
-            "Sugar – In limited studies, it was shown that adding sugar to your soil can help potentially reduce the amount of nitrogen is your soil. Sugar is partially composed of carbon, an element which attracts and soaks up the nitrogen in the soil. This is similar concept to adding sawdust/woodchips which are high in carbon content.",
+            "In limited studies, it was shown that adding sugar to your soil can help potentially reduce the amount of nitrogen is your soil. Sugar is partially composed of carbon, an element which attracts and soaks up the nitrogen in the soil. This is similar concept to adding sawdust/woodchips which are high in carbon content.",
 
-            "Add composted manure to the soil.",
+            "If you already have plants that are producing lots of foliage, it may be best to let them continue to absorb all the nitrogen to amend the soil for your next crops."
 
-            "Plant Nitrogen fixing plants like peas or beans.",
+        ]
+    },
+    'Nlow': {
+        "result": "Nitrogen(N) deficiency symptoms are exhibited by the soil.",
+        "suggestion": [
+            "Low levels of Nitrogen (N) might lead to stunted growth of your crops",
 
-            "Use NPK fertilizers with high N value",
+            "Ammonium sulfate contains 21% nitrogen and 11% sulfur. Ammonium sulfate is acid forming and lowers soil pH.",
 
-            "Do nothing – It may seem counter-intuitive, but if you already have plants that are producing lots of foliage, it may be best to let them continue to absorb all the nitrogen to amend the soil for your next crops."
+            "Monoammonium phosphate (MAP) 11-18% nitrogen and 48-55% P2O5",
+
+            "Adding sugar to your soil can help potentially reduce the amount of nitrogen is your soil. Sugar is partially composed of carbon, an element which attracts and soaks up the nitrogen in the soil. This is similar concept to adding sawdust/woodchips which are high in carbon content.",
+
+            "Potassium nitrate is 13% nitrogen and 44% K2O. Provides soil with readily available nitrate, which generally increases soil pH.",
+
+            "Calcium nitrate is 15% nitrogen and 34% CaO. Provides soil with readily available nitrate.",
+
+            "Urea is 45-46% nitrogen. Urea has reduced caking of fertilizer material. It has less corrosion on equipment."
             
         ]
     },
     'PHigh': {
-        "result": "Your soil has Phosphorous (P) in a large amount",
+        "result": "Very high levels of Pottasium (K) are exhibited by the soil.",
         "suggestion" : [
-            "Avoid adding manure – manure contains many key nutrients for your soil but typically including high levels of phosphorous. Limiting the addition of manure will help reduce phosphorus being added.",
+            "One major problem of high levels of pottasium (K) is the inhibition of calcium. Follow these steps to reduce K levels in your soil:",
 
-            "Use only phosphorus-free fertilizer – if you can limit the amount of phosphorous added to your soil, you can let the plants use the existing phosphorus while still providing other key nutrients such as Nitrogen and Potassium. Find a fertilizer with numbers such as 10-0-10, where the zero represents no phosphorous.",
+            "Loosen the soil deeply with a shovel, and water thoroughly to dissolve water-soluble potassium. Allow the soil to fully dry, and repeat digging and watering the soil two or three more times.",
 
-            "Water your soil – soaking your soil liberally will aid in driving phosphorous out of the soil. This is recommended as a last ditch effort.",
+            "Sift through the soil, and remove as many rocks as possible, using a soil sifter. Minerals occurring in rocks such as mica and feldspar slowly release potassium into the soil slowly through weathering.",
 
-            " Plant nitrogen fixing vegetables to increase nitrogen without increasing phosphorous (like beans and peas).",
+            "Stop applying potassium-rich commercial fertilizer. Apply only commercial fertilizer that has a '0' in the final number field. Commercial fertilizers use a three number system for measuring levels of nitrogen, phosphorous and potassium. The last number stands for potassium. Another option is to stop using commercial fertilizers all together and to begin using only organic matter to enrich the soil.",
 
-            "Use crop rotations to decrease high phosphorous levels"
+            "Mix crushed eggshells, crushed seashells, wood ash or soft rock phosphate to the soil to add calcium. Mix in up to 10 percent of organic compost to help amend and balance the soil."
         ]
     },
 
@@ -84,24 +84,20 @@ fertilizer_dic = {
             "Stop applying potassium-rich commercial fertilizer. Apply only commercial fertilizer that has a '0' in the final number field. Commercial fertilizers use a three number system for measuring levels of nitrogen, phosphorous and potassium. The last number stands for potassium. Another option is to stop using commercial fertilizers all together and to begin using only organic matter to enrich the soil.",
 
 
-            "Mix crushed eggshells, crushed seashells, wood ash or soft rock phosphate to the soil to add calcium. Mix in up to 10 percent of organic compost to help amend and balance the soil.",
-
-            "Use NPK fertilizers with low K levels and organic fertilizers since they have low NPK values.",
-
-            "Grow a cover crop of legumes that will fix nitrogen in the soil. This practice will meet the soil’s needs for nitrogen without increasing phosphorus or potassium."
+            "Mix crushed eggshells, crushed seashells, wood ash or soft rock phosphate to the soil to add calcium. Mix in up to 10 percent of organic compost to help amend and balance the soil."
 
             
         ]
     },
 
     'Klow': {
-        "result": "Your soil has Potassium(K) in a low amount.",
+        "result": "Potassium(K) deficiency symptoms are exhibited by the soil",
         "suggestion": [
-            "Mix in muricate of potash or sulphate of potash",
-            "Try kelp meal or seaweed",
-            "Try Sul-Po-Mag",
-            "Bury banana peels an inch below the soils surface",
-            "Use Potash fertilizers since they contain high values potassium"
+            "There are a limited number of fertilizer materials that can supply K when needed. They are listed below:",
+            "Potassium chloride is the most common K source used in Minnesota. Red, pink and white forms are available.",
+            "Potassium sulfate can be used to supply sulfur in addition to potassium. It is often used for potatoes if low specific gravity is a concern. Studies have shown that potatoes fertilized with potassium chloride have will lower specific gravity compared to those fertilized with potassium sulfate.",
+            "Potassium-magnesium sulfate is a good source of K when there’s also a need for magnesium in a fertilizer program. Consider this for fertilizing corn, alfalfa and small grains grown on sandy soils. The cost of potassium nitrate and potassium sulfate is usually higher, so use in Minnesota is very limited.",
+            "Potassium nitrate is a readily available source of K, but is primarily used for high-value crops because of its cost."
 
         ]
     }
