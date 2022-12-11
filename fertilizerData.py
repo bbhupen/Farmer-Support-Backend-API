@@ -36,7 +36,7 @@ fertilizer_dic = {
         ]
     },
     'PHigh': {
-        "result": "Very high levels of Pottasium (K) are exhibited by the soil.",
+        "result": "Very high levels of Phosphorus (P) are exhibited by the soil.",
         "suggestion" : [
             "One major problem of high levels of pottasium (K) is the inhibition of calcium. Follow these steps to reduce K levels in your soil:",
 
