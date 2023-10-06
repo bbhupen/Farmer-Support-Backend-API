@@ -6,8 +6,29 @@ import pandas as pd
 import flask_cors
 from cropData import crops_dic
 from fertilizerData import fertilizer_dic
+import jwt
+from datetime import datetime, timedelta
+from functools import wraps
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY']='123Secret'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+with app.app_context():
+    db.create_all()
 
 cors = flask_cors.CORS(app, resources={
             r"/crop-predict": {"origins": "*"},
@@ -21,6 +42,29 @@ crop_recommendation_model_path = 'models/recommendationModel.pkl'
 
 crop_recommendation_model = load(
     open(crop_recommendation_model_path, 'rb'))
+
+# decorator for making routes protected
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.headers.get('Authorization')
+
+        if not token or not token.startswith('Bearer '):
+            return jsonify({'message': 'Token is missing or invalid'}), 401
+
+        token = token.split('Bearer ')[1]
+
+        try:
+            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
+            current_user = User.query.filter_by(username=data['username']).first()
+        except jwt.ExpiredSignatureError:
+            return jsonify({'message': 'Token has expired'}), 401
+        except jwt.InvalidTokenError:
+            return jsonify({'message': 'Invalid token'}), 401
+
+        return f(current_user, *args, **kwargs)
+
+    return decorated
 
 
 @ app.route('/', methods=['GET'])
@@ -153,6 +197,54 @@ def fert_key():
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
+
+
+@app.route('/protected', methods=['GET'])
+@token_required
+def protected(current_user):
+    return jsonify({'message': 'This is a protected route!', 'status_code': 200})
+
+
+
+
+@app.route('/register', methods=['POST'])
+def register_user():
+    data = request.get_json()
+
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({'message': 'Username and password are required'}), 400
+
+    existing_user = User.query.filter_by(username=username).first()
+    if existing_user:
+        return jsonify({'message': 'Username already exists'}), 400
+
+    new_user = User(username=username, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User registered successfully'}), 201
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    auth = request.authorization
+
+    if not auth or not auth.username or not auth.password:
+        return jsonify({'message': 'Invalid credentials'}), 401
+
+    user = User.query.filter_by(username=auth.username).first()
+
+    if not user or user.password != auth.password:
+        return jsonify({'message': 'Invalid username or password'}), 401
+
+    token = jwt.encode({'username': user.username, 'exp': datetime.utcnow() + timedelta(minutes=30)},
+                       app.config['SECRET_KEY'])
+    
+    return jsonify({'token': token}), 200
+
 
 
 if __name__ == '__main__':
