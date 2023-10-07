@@ -68,12 +68,14 @@ def token_required(f):
 
 
 @ app.route('/', methods=['GET'])
+@token_required
 def hello_world():
    return "Access /crop-predict and /fertilizer-predict endpoint to use the API."
 
 
 
 @ app.route('/crop-search', methods=['POST'])
+@token_required
 def crop_search():
     if request.method == 'POST':
         req = json.loads(request.json)
@@ -99,6 +101,7 @@ def crop_search():
 
 
 @ app.route('/crop-predict', methods=['POST'])
+@token_required
 def crop_prediction():
 
 
@@ -133,6 +136,7 @@ def crop_prediction():
         
 
 @ app.route('/fertilizer-predict', methods=['POST'])
+@token_required
 def fert_recommend():
 
     req = request.json
@@ -182,6 +186,7 @@ def fert_recommend():
         return response
 
 @ app.route('/fertilizer-key', methods=['POST'])
+@token_required
 def fert_key():
     req = json.loads(request.json)
     print("This is the request ", req['key'])
@@ -197,13 +202,6 @@ def fert_key():
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
-
-
-@app.route('/protected', methods=['GET'])
-@token_required
-def protected(current_user):
-    return jsonify({'message': 'This is a protected route!', 'status_code': 200})
-
 
 
 
